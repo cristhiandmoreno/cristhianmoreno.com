@@ -51,7 +51,7 @@ layout: default
       </div>
       
       <div class="meta-actions">
-        <span title="Tiempo de lectura estimado">⏱️ {{ content | number_of_words | divided_by: 180 }} min</span>
+        <span title="Tiempo de lectura estimado">⏱️ {{ content | number_of_words | divided_by: 180 }} min de lectura</span>
       </div>
     </div>
   </header>
@@ -140,21 +140,22 @@ layout: default
     <h3 class="comments-title">Discusión Abierta</h3>
     <div class="giscus"></div>
   </section>
-  <script src="https://giscus.app/client.js"
-        data-repo="TU_USUARIO_GITHUB/TU_REPO"
-        data-repo-id="TU_REPO_ID"
+
+<script src="https://giscus.app/client.js"
+        data-repo="cristhiandmoreno/comentariosblog"
+        data-repo-id="R_kgDOKXXXX"
         data-category="Announcements"
-        data-category-id="TU_CATEGORY_ID"
+        data-category-id="DIC_kwDOKXXXX"
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="light" 
+        data-theme="preferred_color_scheme"
         data-lang="es"
         crossorigin="anonymous"
         async>
-  </script>
+</script>
   <script>
     function updateGiscusTheme() {
       const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
