@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio | Cristhian Moreno</title>
+<title>
+  
+    Inicio | Cristhian Moreno
+  
+</title>
+
   <link rel="stylesheet" href="/assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Inicio | Cristhian Moreno</title>
 <meta name="generator" content="Jekyll v4.4.1" />
@@ -25,50 +30,83 @@
 {"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Cristhian Moreno"},"description":"Estudiante de Derecho, Representante Estudiantil y Blog Político.","headline":"Inicio","name":"Cristhian Moreno","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
+  <script data-goatcounter="https://cristhiandmoreno.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
-  <!-- MENÚ FIJO GLOBAL -->
-  <header>
-    <div class="header-inner">
+<!--   Asignacion url del autor  -->
+
+
+
+
+
+<!-- 1. Lógica de detección: ¿Estamos en la sección 'El Inconforme'? -->
+
+
+
+<header>
+  <div class="header-inner">
+    
+    <!-- 2. LOGOTIPO (Izquierda) -->
+    
+      <!-- MODO NORMAL: Logo Cristhian Moreno -->
       <a href="/" class="logo">
         Crist<span class="green-char">h</span>ian Moreno
       </a>
+    
 
-      <nav>
+    <!-- 3. NAVEGACIÓN (Derecha) -->
+    <nav>
+      
+      
+        <!-- ESTAMOS EN EL BLOG NORMAL: -->
         <a href="/about">Sobre Mí</a>
         <a href="/articles">Artículos</a>
-        <a href="/guides">Guías</a>
-        
-        <!-- BUSCADOR FUNCIONAL -->
-        <div class="search-wrapper">
-          <div class="search-container">
-            <input type="text" id="search-input" placeholder="Buscar por tema..." class="search-input" aria-label="Buscar artículos">
-            <span class="search-icon">🔍</span>
-          </div>
-          <!-- Contenedor desplegable para resultados -->
-          <div id="search-results-container"></div>
-        </div>
 
-      </nav>
-    </div>
-  </header>
+        <!-- Enlace simple a la sección de opinión -->
+        <!-- Le ponemos una fuente serif para que se distinga sutilmente -->
+        <a href="/el-inconforme" style="font-family: 'Vollkorn', serif; font-style: italic; font-weight: 700;">
+          El Inconforme
+        </a>
+
+        <a href="/guides">Guías</a>
+      
+
+      <!-- BUSCADOR (Siempre visible) -->
+      <div class="search-wrapper">
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Buscar..." class="search-input" aria-label="Buscar artículos">
+          <span class="search-icon">🔍</span>
+        </div>
+        <div id="search-results-container"></div>
+      </div>
+
+    </nav>
+  </div>
+</header>
 
   <!-- CONTENIDO DINÁMICO -->
   <main>
-    <!-- 1. SECCIÓN PORTADA (NOTICIAS) -->
+    <!-- 1. SECCIÓN PORTADA (FILTRADA POR TAG 'PORTADA') -->
 <section class="news-hero">
   <div class="newspaper-grid">
     
+    <!-- 
+       LÓGICA DE FILTRADO:
+       Creamos una lista 'home_posts' que solo contiene posts con el tag 'portada'.
+    -->
     
+    
+    <!-- El primer post de esa lista será el GRANDE (Hero) -->
     
     
     <!-- IZQUIERDA: Destacado Principal -->
     
-    <a href="/opini%C3%B3n/un-breve-prolegomeno/" class="main-article">
+    <a href="/opini%C3%B3n/portada/un-breve-prolegomeno/" class="main-article">
       <div>
         <span class="tag-destacado" style="background:var(--text-color); color:var(--bg-color); padding:4px 10px; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">
-          Editorial Destacado
+          Destacado
         </span>
         
         <h1 style="font-size: 3.5rem; margin: 20px 0; line-height: 1.1;">
@@ -87,31 +125,17 @@
     </a>
     
 
-    <!-- DERECHA: Lo último (Side Articles) -->
+    <!-- DERECHA: Los siguientes seleccionados (Side Articles) -->
     <div class="side-articles">
-      <h2 class="sidebar-title">Recientes</h2>
+      <h2 class="sidebar-title">Selección del Editor</h2>
+      
+      <!-- Iteramos desde el segundo post (offset:1) hasta el 6to -->
       
       
-        
-        <a href="/opini%C3%B3n/un-breve-prolegomeno/" class="mini-post">
-          
-            <img src="/assets/img/publicaciones/prolegomeno.jpg" alt="Un breve prolegómeno" class="mini-post-img" loading="lazy">
-          
-
-          <div style="display:flex; flex-direction:column; justify-content:center;">
-            <h3 class="mini-post-title">Un breve prolegómeno</h3>
-            <small class="mini-post-meta">
-              Cristhian Moreno • 30/11
-            </small>
-          </div>
-        </a>
-      
-      
-      <a href="/articles" class="archive-link">Ver archivo completo →</a>
+      <a href="/articles" class="archive-link">Ver todos los artículos →</a>
     </div>
   </div>
 </section>
-
 <!-- 2. SECCIÓN COLABORADORES (Mejorada) -->
 <section class="collab-section" style="text-align: center;">
   
@@ -129,8 +153,8 @@
           
         
           
-            <div class="collab-item" onclick="openAuthorModal('profesor_k')">
-              Immanuel Kant
+            <div class="collab-item" onclick="openAuthorModal('kevin')">
+              Kevin Daniel Sánchez
             </div>
             <span style="font-size: 1.5rem; opacity: 0.5;">✦</span>
           
@@ -140,8 +164,8 @@
           
         
           
-            <div class="collab-item" onclick="openAuthorModal('profesor_k')">
-              Immanuel Kant
+            <div class="collab-item" onclick="openAuthorModal('kevin')">
+              Kevin Daniel Sánchez
             </div>
             <span style="font-size: 1.5rem; opacity: 0.5;">✦</span>
           
@@ -151,8 +175,8 @@
           
         
           
-            <div class="collab-item" onclick="openAuthorModal('profesor_k')">
-              Immanuel Kant
+            <div class="collab-item" onclick="openAuthorModal('kevin')">
+              Kevin Daniel Sánchez
             </div>
             <span style="font-size: 1.5rem; opacity: 0.5;">✦</span>
           
@@ -162,8 +186,8 @@
           
         
           
-            <div class="collab-item" onclick="openAuthorModal('profesor_k')">
-              Immanuel Kant
+            <div class="collab-item" onclick="openAuthorModal('kevin')">
+              Kevin Daniel Sánchez
             </div>
             <span style="font-size: 1.5rem; opacity: 0.5;">✦</span>
           
@@ -173,8 +197,8 @@
           
         
           
-            <div class="collab-item" onclick="openAuthorModal('profesor_k')">
-              Immanuel Kant
+            <div class="collab-item" onclick="openAuthorModal('kevin')">
+              Kevin Daniel Sánchez
             </div>
             <span style="font-size: 1.5rem; opacity: 0.5;">✦</span>
           
@@ -184,8 +208,8 @@
           
         
           
-            <div class="collab-item" onclick="openAuthorModal('profesor_k')">
-              Immanuel Kant
+            <div class="collab-item" onclick="openAuthorModal('kevin')">
+              Kevin Daniel Sánchez
             </div>
             <span style="font-size: 1.5rem; opacity: 0.5;">✦</span>
           
@@ -205,10 +229,10 @@
       
     
       
-        <div class="collab-card-mini" onclick="openAuthorModal('profesor_k')">
-          <img src="/assets/img/authors/kant.jpg" class="collab-card-img" alt="Immanuel Kant">
+        <div class="collab-card-mini" onclick="openAuthorModal('kevin')">
+          <img src="/assets/img/authors/kevin.jpeg" class="collab-card-img" alt="Kevin Daniel Sánchez">
           <div style="text-align:left;">
-            <h4 style="margin:0; font-size:1.1rem; text-transform:uppercase;">Immanuel Kant</h4>
+            <h4 style="margin:0; font-size:1.1rem; text-transform:uppercase;">Kevin Daniel Sánchez</h4>
             <span style="font-size:0.8rem; color:var(--green-h); font-weight:bold;">Leer perfil &rarr;</span>
           </div>
         </div>
@@ -383,11 +407,11 @@
           "web": "https://twitter.com/cristhian"
         },
       
-        "profesor_k": {
-          "name": "Immanuel Kant",
-          "bio": "Filósofo Prusiano",
-          "avatar": "/assets/img/authors/kant.jpg",
-          "web": "https://university.edu"
+        "kevin": {
+          "name": "Kevin Daniel Sánchez",
+          "bio": "Estudiante de Derecho",
+          "avatar": "/assets/img/authors/kevin.jpeg",
+          "web": "https://www.instagram.com/priv__sanchez"
         },
       
     };

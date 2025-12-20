@@ -1,0 +1,121 @@
+---
+layout: default
+title: "El Inconforme - Diario de Opinión"
+permalink: /el-inconforme/
+---
+
+
+<!-- CABECERA ESTILO PERIÓDICO -->
+<div class="paper-header-wrapper">
+  <div class="paper-meta-top">
+    <span>Fundado en enero de 2026</span>
+    <span>Valle del Cauca, Colombia</span>
+    <span>Edición Digital</span>
+  </div>
+  
+  <h1 class="paper-logo">El Inconforme</h1>
+  
+  <div class="paper-slogan">
+    <em>"La única verdad es la realidad, el resto es opinión."</em>
+  </div>
+  
+  <div class="paper-divider-double"></div>
+</div>
+
+<div class="paper-container">
+
+  <!-- FILTRAR POSTS: Asegúrate que tus posts de opinión tengan categoría: "El Inconforme" -->
+  {% assign opinion_posts = site.categories['El Inconforme'] %}
+  
+  <!-- Si no hay posts aún, mostrar mensaje -->
+  {% if opinion_posts.size == 0 %}
+    <div style="text-align:center; padding: 50px;">
+      <h2>La imprenta está calentando motores.</h2>
+      <p>Pronto publicaremos las primeras columnas.</p>
+    </div>
+  {% else %}
+
+    <!-- 1. NOTICIA PRINCIPAL (Abre a todo lo ancho) -->
+    {% assign main_post = opinion_posts.first %}
+    {% assign main_author = site.data.authors[main_post.author] %}
+    
+    <div>
+    <!-- MODIFICADO: Se añade position: relative para contener el enlace -->
+    <article class="paper-lead-story" style="position: relative;>
+      
+      <!-- NUEVO: Enlace transparente que cubre todo el elemento -->
+      <a href="{{ main_post.url }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
+
+      <div class="paper-lead-content">
+        <span class="paper-cat-label">Columna Central</span>
+        <a href="{{ main_post.url }}">
+          <h2 class="paper-headline-big">{{ main_post.title }}</h2>
+        </a>
+        <div class="paper-byline">
+          Por <strong>{{ main_author.name }}</strong> &mdash; {{ main_post.date | date: "%d de %B, %Y" }}
+        </div>
+        <p class="paper-excerpt">
+          {{ main_post.excerpt | strip_html | truncatewords: 45 }}
+        </p>
+       {% if main_post.content %}
+  {% assign main_minutes = main_post.content | number_of_words | divided_by: 180 %}
+  <div class="paper-read-time">
+    Lectura: {{ main_minutes | at_least: 1 }} min
+  </div>
+{% endif %}
+      </div>
+      {% if main_post.image %}
+      <div class="paper-lead-img">
+        <a href="{{ main_post.url }}">
+          <img src="{{ main_post.image }}" alt="{{ main_post.title }}">
+        </a>
+      </div>
+      {% endif %}
+    </article>
+
+    <div class="paper-divider-single"></div>
+
+    <!-- 2. GRILLA DE COLUMNAS (Estilo 3 columnas) -->
+    <div class="paper-grid">
+      {% for post in opinion_posts offset:1 %}
+        {% assign p_author = site.data.authors[post.author] %}
+        
+        <!-- MODIFICADO: Se añade position: relative -->
+        <article class="paper-column-card" style="position: relative;">
+          
+          <!-- NUEVO: Enlace transparente que cubre todo el elemento -->
+          <a href="{{ post.url }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
+
+          <div class="paper-card-inner">
+            <span class="paper-date-small">{{ post.date | date: "%d/%m/%Y" }}</span>
+            
+            <a href="{{ post.url }}" class="paper-link-wrap">
+              <h3 class="paper-headline-small">{{ post.title }}</h3>
+            </a>
+
+            <!-- MODIFICADO: Se añade z-index: 2 para que el click del autor siga funcionando sobre el enlace general -->
+            <div class="paper-author-mini" onclick="openAuthorModal('{{ post.author }}')" style="position: relative; z-index: 2; cursor: pointer;">
+              {% if p_author.avatar %}
+                <img src="{{ p_author.avatar }}" alt="{{ p_author.name }}">
+              {% endif %}
+              <span>{{ p_author.name }}</span>
+            </div>
+
+            <p class="paper-excerpt-small">
+              {{ post.excerpt | strip_html | truncate: 120 }}
+            </p>
+            
+            <div class="paper-footer-card">
+              {% if post.content %}
+  {% assign minutes = post.content | number_of_words | divided_by: 180 %}
+  <span>⏱ {{ minutes | at_least: 1 }} min</span>
+{% endif %}
+              <a href="{{ post.url }}">Leer &rarr;</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+  {% endif %}
+</div>

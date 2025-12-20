@@ -181,7 +181,7 @@ permalink: /about/
           Derecho &middot; Opinión &middot; Ciudadanía
         </div>
         <p style="margin-top: 15px; font-style: italic; opacity: 0.8;">
-          "Lorem ipsum dolor sit amet"
+          "La muerte es cada día en que uno no es fiel a sí mismo"
         </p>
       </div>
     </div>
@@ -190,32 +190,22 @@ permalink: /about/
     <div class="article-body">
       <!-- Párrafo con Letra Capital -->
       <p class="drop-cap">
-        Mi nombre es <strong>Cristhian Moreno</strong> y este blog nace de una convicción epistemológica: las instituciones deben servir a las personas, y no al revés. Mi objetivo no está encaminado en una línea recta, sino una constante búsqueda de respuestas. Como estudiante de Derecho, he decidido ponerle especial lupa a las desigualdades producto del desconocimiento jurídico.
+        “Al artista le dicen méndigo, y al bandido le dicen firma”. Esas fueron las palabras de un artista de rap en una de sus ponencias magistrales en el transporte público de Cali. Desde siempre hemos vivido en una sociedad de cambio, pero no de uno constante: sino de uno conveniente en el que validamos o invalidamos situaciones por quién las dice, por cómo se dicen, o si se dicen. En una sociedad así se torna peligroso una opinión, porque se puede convertir en dogma, un tweet, porque se puede convertir en funa, una foto, porque se puede convertir en validación; y así con cualquier tipo de expresión humana.
       </p>
       
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+       Las personas ya no miramos las cosas en sí, sino si lo que se dice es conveniente para su narrativa, y en ese sentido, ya las discusiones de fondo se perdieron. Desde esa necesidad, y no de manera mesiánica, sino coherente con una postura abierta de opinión, existe este blog. Aquí encontrarás guías, reflexiones, eventos, que giran alrededor de un mundo curioso que tiene ciudadanos inconformes.
       </p>
 
-      <h3 class="section-header">Visión Política</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+       Aquí, no encontrarás dogmas, ni datos absolutos. Aquí encontrarás dudas fundamentadas, reflexiones basadas en problemas teóricos, y guías que pretenden servir a esta sociedad. Mi nombre es <strong>Cristhian Moreno</strong>, y soy un méndigo más, en una sociedad plagada de firmas.
       </p>
+<!--
 
-      <h3 class="section-header">Hoja de Ruta</h3>
+            <h3 class="section-header">Hoja de Ruta</h3>
       <ul class="styled-list">
         <li>
-            <strong>Formación Jurídica</strong><br>
+            <strong>Formación</strong><br>
             Estudiante de Derecho de la Universidad del Valle (En curso).
         </li>
         <li>
@@ -227,6 +217,8 @@ permalink: /about/
             Inconformista
         </li>
       </ul>
+      -->
+
 
       <!-- Footer / CTA -->
       <div class="cta-box">

@@ -45,7 +45,6 @@ header {
   padding: 30px 40px;
   background: var(--bg-color);
   border-bottom: 2px solid var(--border-color);
-  z-index: 10;
 }
 
 .header-inner {
@@ -1196,3 +1195,312 @@ a.main-article:hover {
 
 /* Ocultar botón nativo en PC si se desea, aunque JS lo controla mejor */
 #native-share-btn { display: none; }
+
+
+/* =========================================
+   ESTILOS "EL INCONFORME" (Periódico)
+   ========================================= */
+
+/* --- 1. Header del Periódico --- */
+.paper-header-wrapper {
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  padding: 40px 20px 0 20px;
+  font-family: var(--font-main);
+}
+
+.paper-meta-top {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 5px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.paper-logo {
+  font-family: 'Vollkorn', serif; /* O una fuente Gótica si quisieras importarla */
+  font-size: 4.5rem; 
+  font-weight: 900;
+  text-transform: uppercase;
+  border-bottom: 3px double var(--border-color); /* Doble línea típica de periódico */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.paper-slogan {
+  font-size: 1.1rem;
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.paper-divider-double {
+  border-top: 4px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  height: 6px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.paper-divider-single {
+  border-bottom: 1px solid var(--border-color);
+  margin: 40px 0;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.paper-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 60px 20px;
+}
+
+/* --- 2. Artículo Principal (Lead Story) --- */
+.paper-lead-story {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Texto | Imagen */
+  gap: 40px;
+  align-items: center;
+}
+
+.paper-cat-label {
+  background: var(--text-color);
+  color: var(--bg-color);
+  padding: 2px 8px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.paper-headline-big {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+.paper-headline-big:hover { color: var(--green-h); }
+
+.paper-byline {
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 8px 0;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.paper-excerpt {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.paper-lead-img img {
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  filter: grayscale(100%); /* Toque antiguo */
+  transition: filter 0.3s;
+  border: 1px solid var(--border-color);
+}
+.paper-lead-story:hover .paper-lead-img img { filter: grayscale(0%); }
+
+/* --- 3. Grilla de Columnas (Masonry/Grid) --- */
+.paper-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas como periódico */
+  gap: 0; /* Sin gap, usaremos bordes */
+  border-top: 2px solid var(--border-color);
+}
+
+.paper-column-card {
+  padding: 30px 25px;
+  border-right: 1px solid var(--border-color); /* Línea vertical divisoria */
+  border-bottom: 1px solid var(--border-color); /* Línea horizontal */
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+
+/* Quitar borde derecho al último de cada fila (en desktop) */
+.paper-column-card:nth-child(3n) {
+  border-right: none;
+}
+.paper-column-card:hover {
+  background: var(--bg-alt);
+}
+
+.paper-headline-small {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  line-height: 1.2;
+}
+
+.paper-author-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.paper-author-mini img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.paper-excerpt-small {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555; /* Un poco más suave que el negro puro */
+  flex-grow: 1; /* Empuja el footer hacia abajo */
+  text-align: justify;
+}
+
+.paper-footer-card {
+  margin-top: 15px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px dotted var(--border-color);
+  padding-top: 10px;
+}
+
+/* --- 4. DROPDOWN DEL MENÚ --- */
+.nav-item-dropdown {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+.nav-link-dropdown {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Justo debajo */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bg-color);
+  min-width: 280px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border: 2px solid var(--border-color);
+  z-index: 1000;
+  padding: 20px;
+  text-align: left;
+}
+.dropdown-menu::before {
+  /* Triangulito arriba */
+  content: "";
+  position: absolute;
+  top: -10px; left: 50%; margin-left: -10px;
+  border-width: 10px; border-style: solid;
+  border-color: transparent transparent var(--border-color) transparent;
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--green-h);
+  font-weight: bold;
+}
+
+.dropdown-inner h3 {
+  margin: 5px 0;
+  font-family: var(--font-main);
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+.dropdown-inner p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+.dropdown-btn {
+  display: block;
+  background: var(--text-color);
+  color: var(--bg-color);
+  text-align: center;
+  padding: 8px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid var(--text-color);
+}
+.dropdown-btn:hover {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+
+/* --- RESPONSIVE (Móvil) --- */
+@media (max-width: 900px) {
+  /* Header y Logo */
+  .paper-logo { font-size: 3rem; }
+  .paper-meta-top { flex-direction: column; gap: 5px; }
+  
+  /* Lead Story stackeado */
+  .paper-lead-story { grid-template-columns: 1fr; gap: 20px; }
+  .paper-lead-img { order: -1; } /* Imagen arriba en móvil */
+  .paper-headline-big { font-size: 2.2rem; }
+  
+  /* Grilla a 1 sola columna */
+  .paper-grid { grid-template-columns: 1fr; }
+  .paper-column-card { 
+    border-right: none; 
+    border-bottom: 1px solid var(--border-color); 
+  }
+  
+  /* Menú Dropdown en Móvil (simplificado) */
+  .nav-item-dropdown:hover .dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: 1px dashed var(--border-color);
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+/* --- EXTRAS PARA EL PERIÓDICO --- */
+
+/* Sidebar Sticky */
+.newspaper-sidebar {
+  /* Asegúrate que el contenedor padre tenga overflow visible si usas sticky */
+}
+
+/* Estilo para los tags del periódico al hacer hover */
+.news-tag:hover {
+  color: var(--green-h);
+  border-bottom-color: var(--green-h);
+}
+
+/* Botones compartir */
+.share-icon {
+  text-decoration: none !important; /* Forzar sin subrayado */
+}
+
+

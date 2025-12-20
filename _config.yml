@@ -22,3 +22,19 @@ paginate_path: "/blog/page:num/"
 collections:
   guides:
     output: true
+
+defaults:
+  - scope:
+      path: "" # Configuración global para posts normales
+      type: "posts"
+    values:
+      layout: "post"
+  
+  # CONFIGURACIÓN ESPECÍFICA PARA EL INCONFORME
+  - scope:
+      path: "_posts/el-inconforme" # Debes crear esta carpeta dentro de _posts
+      type: "posts"
+    values:
+      layout: "newspaper" # Usará el nuevo diseño que crearemos abajo
+      permalink: /el-inconforme/:title/ # Forza la URL que pediste
+      categories: ["El Inconforme"] # Asigna la categoría automáticamente

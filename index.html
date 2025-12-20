@@ -3,19 +3,25 @@ layout: default
 title: Inicio
 ---
 
-<!-- 1. SECCIÓN PORTADA (NOTICIAS) -->
+<!-- 1. SECCIÓN PORTADA (FILTRADA POR TAG 'PORTADA') -->
 <section class="news-hero">
   <div class="newspaper-grid">
     
-    {% assign cristhian_posts = site.posts | where: "author", "cristhian" %}
-    {% assign featured_post = cristhian_posts.first %}
+    <!-- 
+       LÓGICA DE FILTRADO:
+       Creamos una lista 'home_posts' que solo contiene posts con el tag 'portada'.
+    -->
+    {% assign home_posts = site.categories['portada'] %}
+    
+    <!-- El primer post de esa lista será el GRANDE (Hero) -->
+    {% assign featured_post = home_posts.first %}
     
     <!-- IZQUIERDA: Destacado Principal -->
     {% if featured_post %}
     <a href="{{ featured_post.url }}" class="main-article">
       <div>
         <span class="tag-destacado" style="background:var(--text-color); color:var(--bg-color); padding:4px 10px; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">
-          Editorial Destacado
+          Destacado
         </span>
         
         <h1 style="font-size: 3.5rem; margin: 20px 0; line-height: 1.1;">
@@ -33,16 +39,23 @@ title: Inicio
       </div>
     </a>
     {% else %}
+    <!-- Mensaje si no has etiquetado nada aún -->
     <div class="main-article">
-      <h2>Próximamente: La voz de Cristhian.</h2>
+      <div style="display:flex; align-items:center; justify-content:center; height:100%; text-align:center;">
+        <div>
+          <h2>No hay portada seleccionada.</h2>
+          <p>Agrega el tag <code>portada</code> a un post para verlo aquí.</p>
+        </div>
+      </div>
     </div>
     {% endif %}
 
-    <!-- DERECHA: Lo último (Side Articles) -->
+    <!-- DERECHA: Los siguientes seleccionados (Side Articles) -->
     <div class="side-articles">
-      <h2 class="sidebar-title">Recientes</h2>
+      <h2 class="sidebar-title">Selección del Editor</h2>
       
-      {% for post in site.posts limit:5 %}
+      <!-- Iteramos desde el segundo post (offset:1) hasta el 6to -->
+      {% for post in home_posts limit:5 offset:1 %}
         {% assign p_author = site.data.authors[post.author] %}
         <a href="{{ post.url }}" class="mini-post">
           {% if post.image %}
@@ -54,17 +67,16 @@ title: Inicio
           <div style="display:flex; flex-direction:column; justify-content:center;">
             <h3 class="mini-post-title">{{ post.title }}</h3>
             <small class="mini-post-meta">
-              {{ p_author.name | default: "Invitado" }} • {{ post.date | date: "%d/%m" }}
+              {{ p_author.name | default: "Autor" }} • {{ post.date | date: "%d/%m" }}
             </small>
           </div>
         </a>
       {% endfor %}
       
-      <a href="/articles" class="archive-link">Ver archivo completo →</a>
+      <a href="/articles" class="archive-link">Ver todos los artículos →</a>
     </div>
   </div>
 </section>
-
 <!-- 2. SECCIÓN COLABORADORES (Mejorada) -->
 <section class="collab-section" style="text-align: center;">
   

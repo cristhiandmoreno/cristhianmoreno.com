@@ -4,8 +4,9 @@ cristhian:
   bio: "Estudiante de Derecho y Representante Estudiantil."
   avatar: "/assets/img/authors/cristhian.jpg"
 
-profesor_k:
-  name: "Immanuel Kant"
-  web: "https://university.edu"
-  bio: "Filósofo Prusiano"
-  avatar: "/assets/img/authors/kant.jpg"
+kevin:
+  name: "Kevin Daniel Sánchez"
+  web: "https://www.instagram.com/priv__sanchez"
+  bio: "Estudiante de Derecho"
+  avatar: "/assets/img/authors/kevin.jpeg"
+  slug: kevin-sanchez

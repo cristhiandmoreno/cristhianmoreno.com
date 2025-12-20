@@ -3,41 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}Cristhian Moreno</title>
+<title>
+  {% if page.url contains '/el-inconforme' %}
+    {% if page.title %}{{ page.title }} | {% endif %}El Inconforme
+  {% else %}
+    {% if page.title %}{{ page.title }} | {% endif %}Cristhian Moreno
+  {% endif %}
+</title>
+
   <link rel="stylesheet" href="/assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
   {% seo %}
   <script data-goatcounter="https://cristhiandmoreno.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
-  <!-- MENÚ FIJO GLOBAL -->
-  <header>
-    <div class="header-inner">
+<!--   Asignacion url del autor  -->
+{% assign author = site.data.authors[page.author] %}
+
+
+
+
+<!-- 1. Lógica de detección: ¿Estamos en la sección 'El Inconforme'? -->
+{% assign is_inconforme = false %}
+{% if page.url contains '/el-inconforme' or page.categories contains 'El Inconforme' %}
+  {% assign is_inconforme = true %}
+{% endif %}
+
+<header>
+  <div class="header-inner">
+    
+    <!-- 2. LOGOTIPO (Izquierda) -->
+    {% if is_inconforme %}
+      <!-- MODO PERIODICO: Logo El Inconforme -->
+      <!-- Usa una fuente con serifas (Vollkorn) para dar autoridad -->
+      <a href="/el-inconforme" class="logo" style="font-family: 'Vollkorn', serif; font-weight: 900; letter-spacing: -1px; font-size: 1.6rem;">
+        El Inconforme<span style="color:var(--text-color); font-size: 2rem; line-height:0;">.</span>
+      </a>
+    {% else %}
+      <!-- MODO NORMAL: Logo Cristhian Moreno -->
       <a href="/" class="logo">
         Crist<span class="green-char">h</span>ian Moreno
       </a>
+    {% endif %}
 
-      <nav>
+    <!-- 3. NAVEGACIÓN (Derecha) -->
+    <nav>
+      
+      {% if is_inconforme %}
+        <!-- ESTAMOS EN EL PERIÓDICO: -->
+        <!-- Mostramos enlace simple para volver al sitio principal -->
+        <a href="/" style="border-bottom: 2px solid var(--green-h);">
+          &larr; Cristhian Moreno
+        </a>
+      
+      {% else %}
+        <!-- ESTAMOS EN EL BLOG NORMAL: -->
         <a href="/about">Sobre Mí</a>
         <a href="/articles">Artículos</a>
-        <a href="/guides">Guías</a>
-        
-        <!-- BUSCADOR FUNCIONAL -->
-        <div class="search-wrapper">
-          <div class="search-container">
-            <input type="text" id="search-input" placeholder="Buscar por tema..." class="search-input" aria-label="Buscar artículos">
-            <span class="search-icon">🔍</span>
-          </div>
-          <!-- Contenedor desplegable para resultados -->
-          <div id="search-results-container"></div>
-        </div>
 
-      </nav>
-    </div>
-  </header>
+        <!-- Enlace simple a la sección de opinión -->
+        <!-- Le ponemos una fuente serif para que se distinga sutilmente -->
+        <a href="/el-inconforme" style="font-family: 'Vollkorn', serif; font-style: italic; font-weight: 700;">
+          El Inconforme
+        </a>
+
+        <a href="/guides">Guías</a>
+      {% endif %}
+
+      <!-- BUSCADOR (Siempre visible) -->
+      <div class="search-wrapper">
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Buscar..." class="search-input" aria-label="Buscar artículos">
+          <span class="search-icon">🔍</span>
+        </div>
+        <div id="search-results-container"></div>
+      </div>
+
+    </nav>
+  </div>
+</header>
 
   <!-- CONTENIDO DINÁMICO -->
   <main>

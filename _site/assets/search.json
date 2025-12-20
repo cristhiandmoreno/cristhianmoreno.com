@@ -1,9 +1,18 @@
 [
   
     {
+      "title"    : "Escribir para la máquina: detectores de IA e indefensión estudiantil",
+      "url"      : "/el-inconforme/la-ia-en-la-academia/",
+      "category" : "El Inconforme, Opinión",
+      "tags"     : "Tecnologia, Inteligencia Artificial",
+      "date"     : "18/12/2025",
+      "excerpt"  : "Los detectores de inteligencia artificial surgieron con un propósito que es legítimo: prevenirel plagio y evaluar las capacidades reales de..."
+    },
+  
+    {
       "title"    : "Un breve prolegómeno",
-      "url"      : "/opini%C3%B3n/un-breve-prolegomeno/",
-      "category" : "Opinión",
+      "url"      : "/opini%C3%B3n/portada/un-breve-prolegomeno/",
+      "category" : "Opinión, portada",
       "tags"     : "Acta fundacional",
       "date"     : "30/11/2025",
       "excerpt"  : "Cuando pensé este proyecto, hace unos 10 meses, no contaba con todo el cambio de perspectivas e ideas que podían..."

@@ -2,12 +2,12 @@
 layout: post
 title: "Un breve prolegómeno"
 author: cristhian  # Esto debe coincidir con el ID en _data/authors.yml
-categories: [Opinión]
+categories: [Opinión, portada]
 tags: [Acta fundacional] # Etiquetas secundarias
-seo_type: Article # Opcional: Cambia a "Article" o "BlogPosting" según convenga para Google
 description: "Expectativas del blog"
 image: /assets/img/publicaciones/prolegomeno.jpg
 caption: "Fotografía tomada en el Jardín Botánico de Bogotá, Colombia"
+schema_type: OpinionArticle
 discusion: false # ESTO ACTIVA LOS COMENTARIOS DE GISCUS
 alt: "Cristhian Moreno"
 ---

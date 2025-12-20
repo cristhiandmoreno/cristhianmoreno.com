@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  
+    Escribir para la máquina: detectores de IA e indefensión estudiantil | El Inconforme
+  
+</title>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Escribir para la máquina: detectores de IA e indefensión estudiantil | Cristhian Moreno</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Escribir para la máquina: detectores de IA e indefensión estudiantil" />
+<meta name="author" content="Kevin Daniel Sánchez" />
+<meta property="og:locale" content="es" />
+<meta name="description" content="De qué trata el texto, en una sola idea fuerte" />
+<meta property="og:description" content="De qué trata el texto, en una sola idea fuerte" />
+<link rel="canonical" href="http://localhost:4000/el-inconforme/la-ia-en-la-academia/" />
+<meta property="og:url" content="http://localhost:4000/el-inconforme/la-ia-en-la-academia/" />
+<meta property="og:site_name" content="Cristhian Moreno" />
+<meta property="og:image" content="http://localhost:4000/assets/img/publicaciones/el-inconforme/verificacion-ia.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-18T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/img/publicaciones/el-inconforme/verificacion-ia.jpeg" />
+<meta property="twitter:title" content="Escribir para la máquina: detectores de IA e indefensión estudiantil" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Kevin Daniel Sánchez"},"dateModified":"2025-12-18T00:00:00-05:00","datePublished":"2025-12-18T00:00:00-05:00","description":"De qué trata el texto, en una sola idea fuerte","headline":"Escribir para la máquina: detectores de IA e indefensión estudiantil","image":"http://localhost:4000/assets/img/publicaciones/el-inconforme/verificacion-ia.jpeg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/el-inconforme/la-ia-en-la-academia/"},"url":"http://localhost:4000/el-inconforme/la-ia-en-la-academia/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script data-goatcounter="https://cristhiandmoreno.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<!--   Asignacion url del autor  -->
+
+
+
+
+
+<!-- 1. Lógica de detección: ¿Estamos en la sección 'El Inconforme'? -->
+
+
+
+<header>
+  <div class="header-inner">
+    
+    <!-- 2. LOGOTIPO (Izquierda) -->
+    
+      <!-- MODO PERIODICO: Logo El Inconforme -->
+      <!-- Usa una fuente con serifas (Vollkorn) para dar autoridad -->
+      <a href="/el-inconforme" class="logo" style="font-family: 'Vollkorn', serif; font-weight: 900; letter-spacing: -1px; font-size: 1.6rem;">
+        El Inconforme<span style="color:var(--text-color); font-size: 2rem; line-height:0;">.</span>
+      </a>
+    
+
+    <!-- 3. NAVEGACIÓN (Derecha) -->
+    <nav>
+      
+      
+        <!-- ESTAMOS EN EL PERIÓDICO: -->
+        <!-- Mostramos enlace simple para volver al sitio principal -->
+        <a href="/" style="border-bottom: 2px solid var(--green-h);">
+          &larr; Cristhian Moreno
+        </a>
+      
+      
+
+      <!-- BUSCADOR (Siempre visible) -->
+      <div class="search-wrapper">
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Buscar..." class="search-input" aria-label="Buscar artículos">
+          <span class="search-icon">🔍</span>
+        </div>
+        <div id="search-results-container"></div>
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+  <!-- CONTENIDO DINÁMICO -->
+  <main>
+    
+
+<!-- Estilos específicos inyectados -->
+<style>
+  /* --- LAYOUT GENERAL (Grid 2 columnas) --- */
+  .newspaper-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Contenido | Sidebar */
+    gap: 60px;
+    align-items: start;
+    font-family: var(--font-main);
+  }
+
+  .newspaper-main-column { min-width: 0; }
+
+  /* --- HEADER DEL ARTÍCULO --- */
+  .newspaper-breadcrumb {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--green-h);
+    font-weight: bold;
+    border-bottom: 1px solid var(--border-color);
+    line-height: 0.1em;
+    margin: 10px 0 30px; 
+  }
+  .newspaper-breadcrumb span { background: var(--bg-color); padding: 0 10px; }
+
+  .newspaper-title {
+    font-size: 3.5rem;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  /* --- TAGS (Debajo del título) --- */
+  .newspaper-tags-top {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  /* Modificado para que funcione como botón visualmente idéntico */
+  .news-tag-btn {
+    font-family: sans-serif;
+    font-size: 0.75rem; 
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #666;
+    background: transparent; /* Reset de botón */
+    border: 1px solid #ccc;
+    padding: 3px 8px;
+    border-radius: 20px; 
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer; /* Importante para la UX */
+  }
+  .news-tag-btn:hover {
+    background: var(--green-h);
+    color: white;
+    border-color: var(--green-h);
+  }
+
+  .newspaper-lead {
+    font-size: 1.3rem;
+    text-align: center;
+    color: #444;
+    font-weight: 300;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    padding: 0 20px;
+    font-style: italic;
+  }
+
+  /* --- META & SHARE --- */
+  .newspaper-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+  }
+  
+  .share-minimal { display: flex; gap: 10px; }
+  .share-btn-mini {
+    width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    transition: 0.2s;
+  }
+  .share-btn-mini:hover { background: var(--green-h); color: white; border-color: var(--green-h); }
+
+  /* --- CONTENIDO --- */
+  .newspaper-content {
+    font-family: 'Merriweather', serif;
+    font-size: 1.25rem;
+    line-height: 1.9;
+    text-align: justify;
+  }
+  .newspaper-content p:first-of-type::first-letter {
+    float: left; font-size: 5rem; line-height: 0.8; 
+    font-weight: 700; font-family: var(--font-main); 
+    margin-right: 15px; color: var(--text-color);
+  }
+  blockquote {
+    border-left: none; font-family: var(--font-main);
+    font-size: 1.8rem; font-style: italic; text-align: center;
+    margin: 40px 0; color: var(--text-color); line-height: 1.3;
+  }
+
+  /* --- AUTOR SECTION --- */
+  .author-full-section {
+    margin-top: 60px;
+    background: var(--bg-alt);
+    padding: 30px;
+    border-top: 4px solid var(--text-color);
+  }
+  /* Estilo tarjeta clickeable del autor */
+  .author-box {
+    display: flex; gap: 20px; align-items: center;
+    margin-bottom: 30px;
+    cursor: pointer; /* Mano al pasar mouse */
+    transition: transform 0.2s;
+  }
+  .author-box:hover { transform: translateX(5px); }
+  
+  .author-box img {
+    width: 90px; height: 90px; border-radius: 50%;
+    object-fit: cover; filter: grayscale(100%);
+    border: 2px solid var(--green-h);
+  }
+
+  .more-from-author h4 {
+    text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;
+    margin-bottom: 15px; border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+  }
+  .author-posts-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
+  }
+  .mini-author-post {
+    font-size: 0.9rem; line-height: 1.3; font-weight: bold;
+    display: block;
+  }
+  .mini-author-post:hover { color: var(--green-h); text-decoration: underline; }
+
+  /* --- SIDEBAR --- */
+  .newspaper-sidebar {
+    position: sticky;
+    top: 40px;
+    padding-left: 30px;
+    border-left: 1px solid var(--border-color);
+  }
+  .sidebar-header {
+    font-family: sans-serif; font-weight: 900; text-transform: uppercase;
+    font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 20px;
+    border-bottom: 2px solid var(--text-color); padding-bottom: 5px;
+  }
+  .side-item { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dotted #ccc; }
+  .side-item:last-child { border-bottom: none; }
+  
+  .side-topic-label {
+    font-size: 0.65rem; text-transform: uppercase; color: var(--green-h); font-weight: bold;
+    display: block; margin-bottom: 4px;
+  }
+  .side-title {
+    font-family: var(--font-main); font-size: 1.1rem; line-height: 1.2; margin: 0; font-weight: 700;
+  }
+  .side-title a:hover { color: var(--green-h); }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 900px) {
+    .newspaper-wrapper { grid-template-columns: 1fr; gap: 40px; }
+    .newspaper-title { font-size: 2.5rem; }
+    .newspaper-sidebar {
+      padding-left: 0; border-left: none; border-top: 1px solid var(--border-color);
+      padding-top: 40px; position: static;
+    }
+    .author-posts-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="newspaper-wrapper">
+
+  <!-- COLUMNA IZQUIERDA: ARTÍCULO -->
+  <article class="newspaper-main-column">
+
+    <!-- Breadcrumb -->
+    <h6 class="newspaper-breadcrumb">
+      <span><a href="/el-inconforme" style="text-decoration:none;">El Inconforme / Opinión</a></span>
+    </h6>
+
+    <!-- TÍTULO -->
+    <h1 class="newspaper-title">Escribir para la máquina: detectores de IA e indefensión estudiantil</h1>
+
+    <!-- 1. CAMBIO AQUÍ: TAGS CON TRIGGERSEARCH (COMO POST.HTML) -->
+    
+    <div class="newspaper-tags-top">
+      
+        <!-- Usamos button con onclick en lugar de <a> con href -->
+        <button onclick="triggerSearch('Tecnologia')" class="news-tag-btn">
+          Tecnologia
+        </button>
+      
+        <!-- Usamos button con onclick en lugar de <a> con href -->
+        <button onclick="triggerSearch('Inteligencia Artificial')" class="news-tag-btn">
+          Inteligencia Artificial
+        </button>
+      
+    </div>
+    
+    
+    <!-- DESCRIPCIÓN (Bajada) -->
+    
+      <p class="newspaper-lead">De qué trata el texto, en una sola idea fuerte</p>
+    
+
+    <!-- META + SHARE -->
+    <div class="newspaper-meta-row">
+      <div>
+        Por <a style="cursor: pointer;" onclick="openAuthorModal('kevin')"><strong>Kevin Daniel Sánchez</strong></a> • 18 Dec, 2025
+      </div>
+      
+      <div class="share-minimal">
+        <a href="https://twitter.com/intent/tweet?text=Escribir para la máquina: detectores de IA e indefensión estudiantil&url=http://localhost:4000/el-inconforme/la-ia-en-la-academia/" target="_blank" class="share-btn-mini" title="Compartir en Twitter">X</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/el-inconforme/la-ia-en-la-academia/" target="_blank" class="share-btn-mini" title="Compartir en LinkedIn">in</a>
+        <a href="https://wa.me/?text=Escribir para la máquina: detectores de IA e indefensión estudiantil http://localhost:4000/el-inconforme/la-ia-en-la-academia/" target="_blank" class="share-btn-mini" title="Compartir en WhatsApp">Wa</a>
+      </div>
+    </div>
+
+    <!-- CONTENIDO DEL POST -->
+    <div class="newspaper-content">
+      <p>Los detectores de inteligencia artificial surgieron con un propósito que es legítimo: prevenir
+el plagio y evaluar las capacidades reales de las personas en contextos académicos y
+profesionales, evitando que haya una dependencia acrítica de herramientas automatizadas.
+Reconozco este objetivo porque el problema no está en la existencia de estas tecnologías,
+sino en la forma en la que están siendo utilizadas. En particular, su adopción como
+instrumentos o jueces punitivos dentro de los sistemas de evaluación académica, ha abierto
+una serie de vacíos que afectan directamente al estudiantado y que merecen que hagamos una
+reflexión crítica.</p>
+
+<p>El primer vacío por mencionar es la opacidad. En cualquier procedimiento sancionatorio para
+usar y acceder al derecho a la defensa se necesita de conocer con claridad la imputación y los
+fundamentos que la sostienen. Ahora bien, cuando la sospecha de uso de IA se basa en un
+índice probabilístico generado por un modelo que no puede ser explicado de manera
+determinista, ese derecho se vuelve casi ilusorio. No se le acusa al evaluado sobre una acción
+concreta verificable, sino una probabilidad estadística. El estudiante no sabe exactamente qué
+se le reprocha ni qué criterios específicos condujeron a esa conclusión, y por tanto tampoco
+sabe cómo rebatirla.</p>
+
+<p>Los detectores de IA han sido implementados y protocolizados, sí. Pero en una ruta
+institucional marcadamente punitiva. Las universidades suelen establecer porcentajes de
+tolerancia y sanciones automáticas ya sea la disminución de la nota, anulación del trabajo o
+incluso consecuencias disciplinarias más graves. No obstante, rara vez se diseñan
+mecanismos claros, eficaces y transparentes para impugnar una detección errónea. La
+decisión ya no la toma el profesor en ejercicio de su juicio pedagógico, sino un programa
+contratado por la institución (hipócrita o irónicamente son otras IA). La pregunta por la
+responsabilidad queda entonces suspendida; cuando el sistema falla, ni el software ni la
+universidad parecen asumir plenamente las consecuencias, dejando al estudiante en una
+situación de indefensión y en una permanente incertidumbre ansiosa.</p>
+
+<p>Este modelo no solo es problemático desde un punto de vista procedimental, sino también
+desde el pedagógico. Muchos detectores de IA afirman basarse en rasgos como coherencia,
+fluidez, claridad sintáctica o precisión conceptual; es decir, cualidades que históricamente han
+sido promovidas por la universidad como signos de buena escritura académica. El resultado
+es paradójico terminando con el estudiante que comienza a escribir no para argumentar mejor,
+sino para no parecer demasiado correcto, para introducir torpezas estratégicas o estilos
+artificialmente desprolijos que reduzcan el riesgo de ser señalado por un algoritmo. La
+escritura deja de orientarse al lector humano y se dirige, por temor, a un lector artificial.
+En este punto, vemos al problema trascender lo técnico y revelarnos una dimensión más
+profunda: el surgir de una nueva forma de autoridad. Una autoridad que no razona, no dialoga
+ni explica, pero que produce efectos reales sobre las trayectorias académicas. El juicio
+pedagógico es desplazado por un dictamen probabilístico que se presenta como neutral y
+objetivo, aun cuando sus márgenes de error y sus criterios internos no sean plenamente
+conocidos. Se trata de una autoridad que vigila sin mostrarse y sanciona sin dar razones
+completas.</p>
+
+<p>Aquí me permito recordar el concepto de panoptismo desarrollado por Michel Foucault.
+Como en el panóptico, el poder no necesita observar todo el tiempo para ser eficaz basta con
+que el sujeto interiorice la posibilidad de ser observado. Algo similar ocurre cuando el
+estudiante escribe bajo la sospecha constante de la detección algorítmica de las IAs que use la
+universidad. No sabe cuándo ni cómo será evaluado por la máquina, pero ajusta su conducta
+en función de esa mirada invisible. La consecuencia es una forma de autocensura que
+empobrece el proceso educativo.</p>
+
+<p>El uso acrítico de detectores de inteligencia artificial en la evaluación académica no solo nos
+plantea dudas sobre su fiabilidad técnica, sino que compromete principios básicos del debido
+proceso, altera los fines pedagógicos de la escritura y consolida una autoridad que no asume
+responsabilidad por sus errores. Mientras estas herramientas no sean transparentes,
+discutibles y subordinadas al juicio humano, su aplicación punitiva corre el riesgo de
+erosionar aquello que la universidad dice defender, el pensamiento crítico, la formación
+integral y la confianza en la razón argumentada.</p>
+
+    </div>
+
+    <!-- SECCIÓN AUTOR -->
+    <div class="author-full-section">
+      <div class="author-box" onclick="openAuthorModal('kevin')">
+        <img src="/assets/img/authors/kevin.jpeg" alt="Kevin Daniel Sánchez">
+        <div>
+          <span style="color:var(--green-h); font-weight:900; text-transform:uppercase; font-size:0.75rem;">Columnista</span>
+          <h3 style="margin: 0; font-family:var(--font-main); font-size:1.6rem;">Kevin Daniel Sánchez</h3>
+          <p style="margin: 5px 0 0; font-size:0.9rem; opacity:0.8;">Estudiante de Derecho</p>
+          <span style="font-size:0.75rem; text-decoration:underline; font-weight:bold;">Ver perfil completo</span>
+        </div>
+      </div>
+
+      <div class="more-from-author">
+        <h4>Más de Kevin Daniel Sánchez</h4>
+        <div class="author-posts-grid">
+          
+          
+            <span style="font-size:0.8rem; color:grey;">No hay columnas recientes.</span>
+          
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+      <a href="/el-inconforme" style="font-weight:bold; text-transform:uppercase; font-size:0.8rem; border-bottom:1px solid black;">
+        &larr; Volver a la edición
+      </a>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="newspaper-sidebar">
+    <div class="sidebar-header">Temas Relacionados</div>
+    
+    
+    
+    
+
+    
+      
+    
+      
+        
+        
+
+        
+      
+    
+
+    
+      <p style="font-size:0.85rem; color:grey; font-style:italic;">No hay artículos relacionados.</p>
+    
+
+    <div class="sidebar-header" style="margin-top:50px;">Lo más reciente</div>
+    
+    
+       <div class="side-item">
+         <h4 class="side-title"><a href="/el-inconforme/la-ia-en-la-academia/" style="font-style:italic;">Escribir para la máquina: detectores de IA e indefensión estudiantil</a></h4>
+         <span style="font-size:0.7rem; color:#888;">18 Dec</span>
+       </div>
+    
+       <div class="side-item">
+         <h4 class="side-title"><a href="/opini%C3%B3n/portada/un-breve-prolegomeno/" style="font-style:italic;">Un breve prolegómeno</a></h4>
+         <span style="font-size:0.7rem; color:#888;">30 Nov</span>
+       </div>
+    
+  </aside>
+    
+  <section class="comments-section">
+    <h3 class="comments-title">Discusión</h3>
+    <p class="post-lead">Para entrar en la discusión, tienes que crear una cuenta en <a style="color: var(--green-h)" href="https://github.com/signup" target="_blank">Github</a>, o sino, puedes enviar un correo a crdmcx@gmail.com</p>
+    <div class="giscus"></div>
+  </section>
+
+<script src="https://giscus.app/client.js"
+        data-repo="cristhiandmoreno/comentariosblog"
+        data-repo-id="R_kgDOKXXXX"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOKXXXX"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</div>
+
+<!-- DISCUSIÓN -->
+
+  <script>
+    function updateGiscusTheme() {
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    const observer = new MutationObserver(updateGiscusTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  </script>
+  
+
+
+<!-- DATOS ESTRUCTURADOS -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OpinionArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:4000/el-inconforme/la-ia-en-la-academia/"
+  },
+  "headline": "Escribir para la máquina: detectores de IA e indefensión estudiantil",
+  "image": ["http://localhost:4000/assets/img/publicaciones/el-inconforme/verificacion-ia.jpeg"],
+  "datePublished": "2025-12-18T00:00:00-05:00",
+  "dateModified": "2025-12-18T00:00:00-05:00",
+  "author": {
+    "@type": "Person",
+    "name": "Kevin Daniel Sánchez",
+    "url": "https://www.instagram.com/priv__sanchez"
+
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cristhian Moreno",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000/assets/favicon.ico"
+    }
+  },
+  "description": "De qué trata el texto, en una sola idea fuerte",
+  "articleSection": "Tecnologia",
+  "keywords": "Tecnologia, Inteligencia Artificial",
+  "wordCount": "697",
+  "inLanguage": "es-CO",
+  "isAccessibleForFree": true
+}
+</script>
+<!-- 2. CAMBIO AQUÍ: SCRIPT DE CONEXIÓN CON BUSCADOR (Igual a post.html) -->
+<script>
+  function triggerSearch(term) {
+    const searchInput = document.getElementById('search-input');
+    if(searchInput) {
+      // 1. Scroll suave hacia arriba para ver el buscador
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // 2. Esperar un momento a que llegue arriba y llenar el buscador
+      setTimeout(() => {
+        searchInput.value = term;
+        searchInput.focus();
+        // 3. Disparar manualmente el evento de búsqueda
+        const event = new Event('input', { bubbles: true });
+        searchInput.dispatchEvent(event);
+      }, 500);
+    }
+  }
+</script>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Crist<span class="green-char">h</span>ian Moreno.</p>
+    <p style="font-size: 0.8rem; opacity: 0.7;">Derecho, Política & Sociedad.</p>
+  </footer>
+
+  <!-- HERRAMIENTAS FLOTANTES -->
+  <button id="theme-toggle" aria-label="Cambiar modo oscuro">
+    <span class="icon-sun">☀</span>
+    <span class="icon-moon">☾</span>
+  </button>
+
+  <!-- MODAL DE AUTOR REDISEÑADO -->
+  <div id="collab-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="close-modal-btn" aria-label="Cerrar">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-visual">
+          <div class="modal-img-wrapper">
+            <img id="modal-img" src="" alt="Foto del autor">
+          </div>
+        </div>
+        <div class="modal-details">
+          <span class="modal-label">Perfil del Columnista</span>
+          <h2 id="modal-name" class="modal-title"></h2>
+          <div class="modal-divider"></div>
+          <p id="modal-bio" class="modal-text"></p>
+          <div class="modal-actions">
+            <a id="modal-link" href="#" target="_blank" class="modal-btn">
+              Ver perfil completo &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* Dark Mode */
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    if (localStorage.getItem('theme') === 'dark') body.setAttribute('data-theme', 'dark');
+    toggleBtn.addEventListener('click', () => {
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme'); localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    /* --- LÓGICA MODAL AUTORES --- */
+    const authorsData = {
+      
+        "cristhian": {
+          "name": "Cristhian Moreno",
+          "bio": "Estudiante de Derecho y Representante Estudiantil.",
+          "avatar": "/assets/img/authors/cristhian.jpg",
+          "web": "https://twitter.com/cristhian"
+        },
+      
+        "kevin": {
+          "name": "Kevin Daniel Sánchez",
+          "bio": "Estudiante de Derecho",
+          "avatar": "/assets/img/authors/kevin.jpeg",
+          "web": "https://www.instagram.com/priv__sanchez"
+        },
+      
+    };
+
+    const modalOverlay = document.getElementById('collab-modal');
+    const closeModalBtn = document.querySelector('.close-modal-btn');
+    const modalImg = document.getElementById('modal-img');
+    const modalName = document.getElementById('modal-name');
+    const modalBio = document.getElementById('modal-bio');
+    const modalLink = document.getElementById('modal-link');
+
+    window.openAuthorModal = function(key) {
+      const data = authorsData[key];
+      if(data) {
+        modalImg.src = data.avatar || '/assets/img/default-avatar.png';
+        modalName.innerText = data.name;
+        modalBio.innerText = data.bio;
+        
+        if (data.web) {
+          modalLink.href = data.web;
+          modalLink.style.display = 'inline-block';
+        } else {
+          modalLink.style.display = 'none';
+        }
+
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; 
+      }
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = ''; 
+    }
+
+    closeModalBtn.onclick = closeModal;
+    window.onclick = (e) => { if (e.target == modalOverlay) closeModal(); }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape" && modalOverlay.classList.contains('active')) closeModal();
+    });
+
+     /* --- LÓGICA BUSCADOR ROBUSTA --- */
+    const searchInput = document.getElementById('search-input');
+    const resultsContainer = document.getElementById('search-results-container');
+    let postsData = [];
+
+    // 1. Cargar datos usando la ruta relativa correcta de Jekyll
+    fetch("/assets/search.json")
+      .then(response => {
+        if (!response.ok) throw new Error("No se pudo cargar search.json");
+        return response.json();
+      })
+      .then(data => {
+        postsData = data;
+        console.log("Buscador cargado: " + data.length + " entradas.");
+      })
+      .catch(err => console.error("Error cargando buscador:", err));
+
+    // 2. Evento de Búsqueda
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase().trim();
+      resultsContainer.innerHTML = '';
+
+      if (query.length < 2) {
+        resultsContainer.style.display = 'none';
+        return;
+      }
+
+      // Filtrar
+      const filteredPosts = postsData.filter(post => {
+        // Validamos que los campos existan antes de buscar para evitar errores
+        const titleMatch = post.title && post.title.toLowerCase().includes(query);
+        const catMatch   = post.category && post.category.toLowerCase().includes(query);
+        const tagMatch   = post.tags && post.tags.toLowerCase().includes(query);
+        
+        return titleMatch || catMatch || tagMatch;
+      });
+
+      // Mostrar Resultados
+      if (filteredPosts.length > 0) {
+        resultsContainer.style.display = 'block';
+        
+        filteredPosts.forEach(post => {
+          const a = document.createElement('a');
+          a.classList.add('search-result-item');
+          a.href = post.url;
+          
+          // Decidir qué meta-dato mostrar (Tag o Categoría)
+          let metaInfo = post.date;
+          if(post.tags && post.tags.toLowerCase().includes(query)) {
+             metaInfo = `<span class="search-tag">#${post.tags}</span>`;
+          } else if (post.category) {
+             metaInfo = `<span>${post.category}</span> • ${post.date}`;
+          }
+
+          a.innerHTML = `
+            <span class="search-result-title">${post.title}</span>
+            <div class="search-meta">${metaInfo}</div>
+          `;
+          resultsContainer.appendChild(a);
+        });
+      } else {
+        resultsContainer.style.display = 'block';
+        resultsContainer.innerHTML = '<div style="padding:15px; text-align:center; opacity:0.6; font-size:0.9rem;">No hay resultados para "' + query + '"</div>';
+      }
+    });
+
+    // Cerrar buscador al hacer clic fuera
+    document.addEventListener('click', function(e) {
+      if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
+        resultsContainer.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
