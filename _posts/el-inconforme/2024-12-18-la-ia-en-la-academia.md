@@ -2,7 +2,7 @@
 title: "Escribir para la máquina: detectores de IA e indefensión
 estudiantil"
 date: 2025-12-18
-description: "De qué trata el texto, en una sola idea fuerte"
+description: "El problema de la evaluación de la IA en textos académicos"
 author: kevin
 opinion: true # Si está en false, porque no es una opinión, hay que agregar el tipo de artículo "@type": "OpinionArticle", "Article", "NewsArticle"
 discusion: true 
