@@ -186,7 +186,9 @@ layout: default
     font-family: var(--font-main); font-size: 1.1rem; line-height: 1.2; margin: 0; font-weight: 700;
   }
   .side-title a:hover { color: var(--green-h); }
-
+#reading-progress {
+  display: none;
+}
   /* --- RESPONSIVE --- */
 
 @media (max-width: 600px) {
@@ -210,6 +212,65 @@ layout: default
     font-size: 1.15rem;
     line-height: 1.45;
   }
+  @media (max-width: 768px) {
+  #reading-progress {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    z-index: 9999;
+    background: transparent;
+  }
+
+  .progress-track {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  .progress-track::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 24%,
+      rgba(0,0,0,0.12) 25%,
+      transparent 26%
+    );
+    pointer-events: none;
+  }
+
+  .progress-fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--green-h);
+    transition: width 0.15s linear;
+  }
+
+  [data-theme="dark"] .progress-track {
+    background: rgba(255,255,255,0.12);
+  }
+
+  [data-theme="dark"] .progress-track::before {
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 24%,
+      rgba(255,255,255,0.25) 25%,
+      transparent 26%
+    );
+  }
+
+  [data-theme="dark"] .progress-fill {
+    background: #9be7c4;
+  }
+}
 }
 
 
@@ -222,7 +283,18 @@ layout: default
     }
     .author-posts-grid { grid-template-columns: 1fr; }
   }
+
+
+
+}
+
 </style>
+<div id="reading-progress">
+  <div class="progress-track">
+    <span class="progress-fill"></span>
+  </div>
+</div>
+
 
 <div class="newspaper-wrapper">
 
@@ -268,7 +340,7 @@ layout: default
     </div>
 
     <!-- CONTENIDO DEL POST -->
-    <div class="newspaper-content">
+    <div class="newspaper-content" id="article-content">
       {{ content }}
     </div>
 
@@ -354,6 +426,33 @@ layout: default
     <p class="post-lead">Para entrar en la discusión, tienes que crear una cuenta en <a style="color: var(--green-h)" href="https://github.com/signup" target="_blank">Github</a>, o sino, puedes enviar un correo a crdmcx@gmail.com</p>
     <div class="giscus"></div>
   </section>
+<!-- BARRA DE PROGRESO PAGINA -->
+
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const article = document.getElementById('article-content');
+  const fill = document.querySelector('.progress-fill');
+
+  if (!article || !fill) return;
+
+  window.addEventListener('scroll', () => {
+    const articleTop = article.offsetTop;
+    const articleHeight = article.offsetHeight;
+    const scrollY = window.scrollY;
+
+    let progress = (scrollY - articleTop) / articleHeight;
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    fill.style.width = (progress * 100) + '%';
+  });
+});
+</script>
+
+
+
 
 <script src="https://giscus.app/client.js"
         data-repo="cristhiandmoreno/comentariosblog"
