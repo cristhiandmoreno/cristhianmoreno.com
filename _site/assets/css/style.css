@@ -750,9 +750,9 @@ footer {
 /* --- REDISEÑO BLOG (Estilo La República) --- */
 /* Tipografía de lectura optimizada */
 .post-content {
-  font-family: "Merriweather", serif; /* Fuente serif muy legible */
-  font-size: 1.25rem; /* Un poco más grande para comodidad */
-  line-height: 1.9; /* Interlineado generoso */
+  font-family: "Merriweather", serif;
+  font-size: 1.2rem; /* ligeramente más controlada en móvil */
+  line-height: 1.7; /* CLAVE: respiración cognitiva */
   color: var(--text-color);
   margin-top: 30px;
 }
@@ -760,17 +760,40 @@ footer {
 /* Letra capital (Drop cap) estilo periódico */
 .post-content > p:first-of-type::first-letter {
   float: left;
-  font-family: var(--font-main); /* Vollkorn */
-  font-size: 4.5rem;
-  line-height: 0.8;
+  font-family: var(--font-main);
+  font-size: 3rem; /* un poco más sobria */
+  line-height: 0.9;
   font-weight: 700;
-  margin-right: 15px;
+  margin-right: 10px;
+  margin-top: 0.1em; /* alinea mejor con el bloque */
   color: var(--green-h);
 }
 
-.post-content h2, .post-content h3 {
-  font-family: var(--font-main); /* Títulos internos mantienen Vollkorn */
-  margin-top: 2em;
+/* Ritmo de párrafos (esto es CLAVE para textos largos) */
+.post-content p {
+  margin-bottom: 1.6em;
+}
+
+/* Pausa visual sutil: cierre de ideas */
+@media (max-width: 768px) {
+  .post-content p::after {
+    content: "";
+    display: block;
+    width: 25%;
+    height: 1px;
+    margin-top: 1.2em;
+    background: rgba(0, 0, 0, 0.08);
+  }
+  [data-theme=dark] .post-content p::after {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+/* Subtítulos como hitos de avance */
+.post-content h2,
+.post-content h3 {
+  font-family: var(--font-main);
+  margin-top: 2.5em;
+  margin-bottom: 0.8em;
   color: var(--text-color);
 }
 
