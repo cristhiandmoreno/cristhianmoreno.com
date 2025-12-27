@@ -1,0 +1,27 @@
+- id: vida-univalle
+  title: "Vida Universidad del Valle"
+  description: "Hoja de ruta con orientaciones sobre la vida universitaria, reglamento, historia y curiosidades jurídicas para universitarios más informados."
+  image: "/assets/img/guides/univalle.jpg" # Busca una foto tipo campus o biblioteca
+  tag_filter: "univalle" # Las entradas con este tag aparecerán aquí
+  icon: "🎓"
+
+- id: derecho-constitucional
+  title: "Derecho Constitucional"
+  description: "Manuales críticos y apuntes sobre la estructura del Estado y los derechos fundamentales. Teoría aplicada a la realidad colombiana."
+  image: "/assets/img/guides/constitucion.jpg"
+  tag_filter: "constitucional"
+  icon: "⚖️"
+
+- id: herramientas-ciudadanas
+  title: "Herramientas Ciudadanas"
+  description: "Guías prácticas sobre el ejercicio del derecho: cómo interponer una tutela, derechos de petición y mecanismos de participación."
+  image: "/assets/img/guides/ciudadania.jpg"
+  tag_filter: "guia-practica"
+  icon: "🖋️"
+
+- id: teorias-de-estado
+  title: "Teorías de Estado"
+  description: "Manuales críticos y apuntes sobre la estructura del Estado. Teoría aplicada a la realidad colombiana."
+  image: "/assets/img/guides/teorias-de-estado.jpg"
+  tag_filter: "estado"
+  icon: "⚖️"

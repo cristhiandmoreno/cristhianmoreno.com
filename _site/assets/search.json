@@ -1,6 +1,15 @@
 [
   
     {
+      "title"    : "Reglamento univalle: Lo que dice y no dice el acuerdo 009 de 1997 de la Universidad del Vale",
+      "url"      : "/opini%C3%B3n/reglamento-estudiantil-univalle/",
+      "category" : "Opinión",
+      "tags"     : "Acta fundacional, univalle",
+      "date"     : "26/12/2025",
+      "excerpt"  : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim..."
+    },
+  
+    {
       "title"    : "Escribir para la máquina: detectores de IA e indefensión estudiantil",
       "url"      : "/el-inconforme/la-ia-en-la-academia/",
       "category" : "El Inconforme, Opinión",
@@ -11,8 +20,8 @@
   
     {
       "title"    : "Un breve prolegómeno",
-      "url"      : "/opini%C3%B3n/portada/un-breve-prolegomeno/",
-      "category" : "Opinión, portada",
+      "url"      : "/opini%C3%B3n/un-breve-prolegomeno/",
+      "category" : "Opinión",
       "tags"     : "Acta fundacional",
       "date"     : "30/11/2025",
       "excerpt"  : "Cuando pensé este proyecto, hace unos 10 meses, no contaba con todo el cambio de perspectivas e ideas que podían..."

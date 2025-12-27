@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="post-container">
+  <header class="post-header">
+    <div class="post-category">Artículo Externo / {{ page.fuente }}</div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <span>Publicado en: {{ page.fuente }}</span> • 
+      <span>{{ page.date | date: "%d/%m/%Y" }}</span>
+    </div>
+  </header>
+
+  <div class="iframe-wrapper">
+    <iframe src="{{ page.iframe_url }}" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div style="margin-top: 20px; text-align: center;">
+    <a href="{{ page.original_url }}" target="_blank" class="modal-btn">Leer en sitio original &rarr;</a>
+  </div>
+</div>
+
+<style>
+  .iframe-wrapper {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* 80% de la altura de la pantalla */
+    border: 2px solid var(--border-color);
+    background: #fff;
+  }
+  .iframe-wrapper iframe {
+    width: 100%;
+    height: 100%;
+  }
+</style>

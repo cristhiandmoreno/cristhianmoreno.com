@@ -1,0 +1,125 @@
+---
+layout: default
+title: Guías
+---
+
+<div class="guides-page-wrapper">
+  
+  <!-- Encabezado Persuasivo Adaptable -->
+  <section class="guides-intro">
+    <div class="intro-content">
+      <span class="intro-label">Rutas de aprendizaje</span>
+      <h1 class="intro-title">Guías para el <br>Ciudadano Inconforme</h1>
+      <p class="intro-lead">
+        En esta pestaña encontrarás publicaciones en su mayoría respaldadas por <strong>Docentes y académicos</strong> para compartir el conocimiento desde asignaturas hasta acciones ciudadanas. Si crees que tienes un aporte valioso puede contribuir enviándolo al correo <em>crdmcx@gmail.com</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cuadrícula de "Cursos" Responsiva -->
+  <section class="guides-grid">
+    {% for guide in site.data.guides %}
+      <div class="guide-card" onclick="openGuideModal('{{ guide.id }}')">
+        <div class="guide-card-image">
+          <img src="{{ guide.image }}" alt="{{ guide.title }}">
+          <div class="guide-card-overlay">
+            <span class="guide-btn-text">Explorar Contenidos →</span>
+          </div>
+        </div>
+        <div class="guide-card-body">
+          <div class="guide-card-header">
+            <span class="guide-icon">{{ guide.icon }}</span>
+            <h2 class="guide-title">{{ guide.title }}</h2>
+          </div>
+          <p class="guide-description">{{ guide.description }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+
+</div>
+
+<!-- MODAL DE CONTENIDOS RESPONSIVO -->
+<div id="guide-modal" class="guide-modal-overlay">
+  <div class="guide-modal-card">
+    <button class="guide-modal-close" onclick="closeGuideModal()" aria-label="Cerrar">&times;</button>
+    
+    <div class="guide-modal-body">
+      <div class="guide-modal-header">
+        <span id="g-modal-icon" class="g-modal-icon"></span>
+        <h2 id="g-modal-title" class="g-modal-title"></h2>
+        <p id="g-modal-desc" class="g-modal-desc"></p>
+      </div>
+
+      <div class="guide-posts-list">
+        <h3 class="list-title">Publicaciones en esta guía</h3>
+        <div id="g-modal-posts-container">
+          <!-- Inyección dinámica de posts -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Lógica de datos (Jekyll a JS)
+  const postsByTag = {
+    {% for guide in site.data.guides %}
+      "{{ guide.id }}": [
+        {% assign filtered_posts = site.posts | where_exp: "item", "item.tags contains guide.tag_filter" %}
+        {% for post in filtered_posts %}
+          {
+            "title": "{{ post.title }}",
+            "url": "{{ post.url }}",
+            "date": "{{ post.date | date: '%d/%m/%Y' }}",
+            "excerpt": "{{ post.description | default: post.excerpt | strip_html | truncate: 75 }}"
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  const guidesData = {{ site.data.guides | jsonify }};
+
+  function openGuideModal(guideId) {
+    const guide = guidesData.find(g => g.id === guideId);
+    const posts = postsByTag[guideId];
+    
+    document.getElementById('g-modal-title').innerText = guide.title;
+    document.getElementById('g-modal-desc').innerText = guide.description;
+    document.getElementById('g-modal-icon').innerText = guide.icon;
+    
+    const container = document.getElementById('g-modal-posts-container');
+    container.innerHTML = '';
+
+    if (posts && posts.length > 0) {
+      posts.forEach(post => {
+        const item = document.createElement('a');
+        item.href = post.url;
+        item.className = 'guide-post-item';
+        item.innerHTML = `
+          <div class="g-post-text">
+            <h4>${post.title}</h4>
+            <p>${post.excerpt}</p>
+          </div>
+          <span class="g-post-arrow">→</span>
+        `;
+        container.appendChild(item);
+      });
+    } else {
+      container.innerHTML = '<div class="no-content">Próximamente publicaremos contenidos para esta guía.</div>';
+    }
+
+    const modal = document.getElementById('guide-modal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGuideModal() {
+    const modal = document.getElementById('guide-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  window.onclick = (e) => { if (e.target.id === 'guide-modal') closeGuideModal(); }
+</script>

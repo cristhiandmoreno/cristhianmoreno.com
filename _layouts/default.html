@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   {% if page.url contains '/el-inconforme' %}
-    {% if page.title %}{{ page.title }} | {% endif %}El Inconforme
+    {% if page.title %}{{ page.title }} | {% endif %}El Inconforme, por Cristhian moreno 
   {% else %}
     {% if page.title %}{{ page.title }} | {% endif %}Cristhian Moreno
   {% endif %}
@@ -55,6 +55,8 @@
       {% if is_inconforme %}
         <!-- ESTAMOS EN EL PERIÓDICO: -->
         <!-- Mostramos enlace simple para volver al sitio principal -->
+        <a href="/#colaboradores">Colaboradores</a>
+        <!-- a href="/el-inconforme/about">Acerca de</a-->
         <a href="/" style="border-bottom: 2px solid var(--green-h);">
           &larr; Cristhian Moreno
         </a>

@@ -1,0 +1,73 @@
+---
+layout: default
+title: Artículos
+permalink: /articles/
+---
+
+<div class="archive-container">
+  <!-- Encabezado -->
+  <header class="archive-header">
+    <h1 class="archive-main-title">Artículos y Publicaciones</h1>
+    <p class="archive-subtitle">Análisis y opinión por <strong>Cristhian Moreno</strong>.</p>
+    
+    <div class="archive-stats">
+      {% assign internal_posts = site.posts | where: "author", "cristhian" %}
+      {% if site.data.externos %}
+        {% assign all_content = internal_posts | concat: site.data.externos | sort: 'date' | reverse %}
+      {% else %}
+        {% assign all_content = internal_posts | sort: 'date' | reverse %}
+      {% endif %}
+      <span>{{ all_content.size }} publicaciones encontradas</span>
+    </div>
+  </header>
+
+  <!-- Lista de Artículos -->
+  <div class="archive-list">
+    {% for item in all_content %}
+      {% assign is_external = false %}
+      {% if item.source %}{% assign is_external = true %}{% endif %}
+
+      <article class="archive-item">
+        <!-- Imagen -->
+        <a href="{% if is_external %}{{ item.iframe_url }}{% else %}{{ item.url }}{% endif %}" 
+           {% if is_external %}target="_blank" rel="noopener"{% endif %} 
+           class="archive-item-media">
+          {% if item.image %}
+            <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy">
+          {% else %}
+            <div class="archive-placeholder">✒️</div>
+          {% endif %}
+        </a>
+
+        <!-- Contenido -->
+        <div class="archive-item-body">
+          <div class="archive-item-meta">
+            <span class="item-label {% if is_external %}external{% endif %}">
+              {{ item.source | default: "Blog" }}
+            </span>
+            <span class="item-date">{{ item.date | date: "%d %b, %Y" }}</span>
+          </div>
+
+          <h2 class="archive-item-title">
+            <a href="{% if is_external %}{{ item.iframe_url }}{% else %}{{ item.url }}{% endif %}" 
+               {% if is_external %}target="_blank" rel="noopener"{% endif %}>
+              {{ item.title }}
+            </a>
+          </h2>
+
+          <p class="archive-item-excerpt">
+            {{ item.excerpt | strip_html | truncate: 160 }}
+          </p>
+
+          <div class="archive-item-footer">
+            <a href="{% if is_external %}{{ item.iframe_url }}{% else %}{{ item.url }}{% endif %}" 
+               {% if is_external %}target="_blank" rel="noopener"{% endif %} 
+               class="read-more-link">
+              {% if is_external %}Leer en {{ item.source }} ↗{% else %}Leer artículo →{% endif %}
+            </a>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>

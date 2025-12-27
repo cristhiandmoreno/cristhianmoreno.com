@@ -181,7 +181,7 @@ permalink: /about/
           Derecho &middot; Opinión &middot; Ciudadanía
         </div>
         <p style="margin-top: 15px; font-style: italic; opacity: 0.8;">
-          "La muerte es cada día en que uno no es fiel a sí mismo"
+          "La muerte es cada día en que uno no se es fiel a sí mismo"
         </p>
       </div>
     </div>

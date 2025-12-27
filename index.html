@@ -2,7 +2,6 @@
 layout: default
 title: Inicio
 ---
-
 <!-- 1. SECCIÓN PORTADA (FILTRADA POR TAG 'PORTADA') -->
 <section class="news-hero">
   <div class="newspaper-grid">
@@ -11,7 +10,8 @@ title: Inicio
        LÓGICA DE FILTRADO:
        Creamos una lista 'home_posts' que solo contiene posts con el tag 'portada'.
     -->
-    {% assign home_posts = site.categories['portada'] %}
+{% assign home_posts = site.posts | where: "portada", true %}
+
     
     <!-- El primer post de esa lista será el GRANDE (Hero) -->
     {% assign featured_post = home_posts.first %}
@@ -52,7 +52,7 @@ title: Inicio
 
     <!-- DERECHA: Los siguientes seleccionados (Side Articles) -->
     <div class="side-articles">
-      <h2 class="sidebar-title">Selección del Editor</h2>
+      <h2 class="sidebar-title">Lo último</h2>
       
       <!-- Iteramos desde el segundo post (offset:1) hasta el 6to -->
       {% for post in home_posts limit:5 offset:1 %}
@@ -78,7 +78,7 @@ title: Inicio
   </div>
 </section>
 <!-- 2. SECCIÓN COLABORADORES (Mejorada) -->
-<section class="collab-section" style="text-align: center;">
+<section class="collab-section" style="text-align: center;" id="colaboradores">
   
   <div style="max-width: 1400px; margin: 0 auto 30px auto; padding: 0 20px; text-align: left;">
     <h3 style="font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--green-h); display: inline-block; color: var(--bg-color);">
@@ -130,25 +130,37 @@ title: Inicio
     
     <!-- Foto -->
     <div style="position: relative;">
-      <img src="assets/img/authors/cristhian1.jpg" alt="Cristhian Moreno" style="width: 100%; max-height: 500px; object-fit: cover; border: 1px solid var(--border-color); filter: grayscale(100%); transition: filter 0.5s;">
-      <div style="position: absolute; bottom: -20px; right: -10px; background: var(--green-h); color: #fff; padding: 8px 20px; font-weight: bold; font-size: 0.9rem;">
-        Estudiante
-      </div>
+      <h1 class="inconforme-title">El Inconforme.</h1>
+
+      <!--img src="assets/img/authors/cristhian1.jpg" alt="Cristhian Moreno" style="width: 100%; max-height: 500px; object-fit: cover; border: 1px solid var(--border-color); filter: grayscale(100%); transition: filter 0.5s;"-->
+      <div class="opinion-label">
+  Columna de opinión
+</div>
+
+
     </div>
 
     <!-- Texto -->
     <div>
-      <h2 style="font-size: 3.5rem; line-height: 1; margin-bottom: 30px;">
-        Crist<span class="green-char">h</span>ian Moreno.
-      </h2>
-      <p style="font-size: 1.25rem; margin-bottom: 20px; line-height: 1.6;">
-        Si el derecho existe, pero "como un conjunto de normas que regulan la sociedad" creo que por más que exista es execrable. El derecho solo es legítimo cuando puede responder a las necesidades reales.
+      <!--h2 style="font-size: 3.5rem; line-height: 1; margin-bottom: 0;">
+        El Inconforme.
+      </h2-->
+      <p style="font-size: 1 rem; line-height: 1;  margin-top: 0; margin-bottom: 30px;"> Por Crist<span class="green-char">h</span>ian Moreno. </p>
+      <p style="font-size: 1.25rem; margin-bottom: 20px; line-height: 1.6; max-width: 42ch;">
+        El Inconforme es una columna de opinión dedicada a la reflexión crítica sobre asuntos públicos, jurídicos y culturales, escrita desde una postura inconforme frente a los lugares comunes del debate público. Busca problematizar lo evidente, cuestionar certezas asumidas y propiciar una lectura atenta de la realidad.
       </p>
       
       <div style="margin-top: 30px;">
-        <a href="/about" style="display: inline-block; padding: 12px 30px; background: var(--text-color); color: var(--bg-color); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: background 0.3s;">
-          Biografía Completa
-        </a>
+        <a href="/el-inconforme" style="
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--text-color);
+  padding-bottom: 4px;
+">
+  Más sobre El Inconforme
+</a>
+
       </div>
     </div>
 

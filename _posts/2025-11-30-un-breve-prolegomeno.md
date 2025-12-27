@@ -2,7 +2,8 @@
 layout: post
 title: "Un breve prolegómeno"
 author: cristhian  # Esto debe coincidir con el ID en _data/authors.yml
-categories: [Opinión, portada]
+categories: [Opinión]
+portada: true
 tags: [Acta fundacional] # Etiquetas secundarias
 description: "Expectativas del blog"
 image: /assets/img/publicaciones/prolegomeno.jpg

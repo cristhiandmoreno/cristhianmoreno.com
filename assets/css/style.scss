@@ -1124,6 +1124,47 @@ a.main-article:hover {
   border: 2px solid var(--green-h);
 }
 
+.inconforme-title {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.opinion-label {
+  display: inline-block;
+
+  margin-top: 1.2rem; /* ← AQUÍ está el espacio real */
+  padding: 6px 14px;
+
+  background: var(--bg-alt);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+@media (max-width: 600px) {
+  .opinion-label {
+    bottom: -10px;
+    padding: 5px 10px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .inconforme-title {
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+}
+
+
+
 /* 3. Sección Sobre Mí (Responsive) */
 @media (max-width: 900px) {
   #about > div { /* El grid interno */
@@ -1530,3 +1571,475 @@ a.main-article:hover {
 }
 
 
+
+/* --- SECCIÓN ARTÍCULOS (ESTILO NEWS-FEED) --- */
+
+.archive-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.archive-header {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.archive-main-title {
+  font-family: var(--font-main);
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+}
+
+.archive-subtitle {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  opacity: 0.8;
+}
+
+.archive-stats {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 900;
+  color: var(--green-h);
+}
+
+/* Items de la lista */
+.archive-item {
+  display: grid;
+  grid-template-columns: 240px 1fr; /* Imagen fija a la izquierda */
+  gap: 30px;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.archive-item:last-child { border-bottom: none; }
+
+/* Imagen */
+.archive-item-media {
+  display: block;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--bg-alt);
+}
+
+.archive-item-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+  filter: grayscale(100%);
+}
+
+.archive-item:hover .archive-item-media img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+/* Cuerpo del texto */
+.archive-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.item-label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--text-color);
+  color: var(--bg-color);
+  padding: 3px 8px;
+  letter-spacing: 1px;
+}
+
+.item-label.external { background: var(--green-h); }
+
+.item-date { font-size: 0.85rem; color: grey; }
+
+.archive-item-title {
+  font-family: var(--font-main);
+  font-size: 1.8rem;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.archive-item-title a:hover { color: var(--green-h); }
+
+.archive-item-excerpt {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+.read-more-link {
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text-color);
+  border-bottom: 2px solid var(--green-h);
+  padding-bottom: 2px;
+  transition: all 0.2s;
+}
+
+.read-more-link:hover {
+  background: var(--green-h);
+  color: white;
+}
+
+/* --- RESPONSIVE (Móvil) --- */
+
+@media (max-width: 768px) {
+  .archive-main-title { font-size: 2.5rem; }
+  
+  .archive-item {
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 20px;
+    padding: 25px 0;
+  }
+
+  .archive-item-media {
+    height: 180px; /* Imagen arriba */
+  }
+
+  .archive-item-title { font-size: 1.5rem; }
+
+  .archive-item-excerpt {
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* --- SECCIÓN GUÍAS (Cursos) --- */
+
+.guides-page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.guides-intro {
+  text-align: left;
+  max-width: 800px;
+  margin-bottom: 60px;
+  border-left: 5px solid var(--green-h);
+  padding-left: 30px;
+}
+
+.intro-label {
+  text-transform: uppercase;
+  color: var(--green-h);
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.intro-title {
+  font-size: 3.5rem;
+  margin: 10px 0;
+  line-height: 1;
+}
+
+.intro-lead {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Grilla de Cards */
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.guide-card {
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 15px 15px 0px var(--green-h);
+}
+
+.guide-card-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.guide-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: 0.5s;
+}
+
+.guide-card:hover .guide-card-image img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.guide-card-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 117, 31, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.guide-card:hover .guide-card-overlay { opacity: 1; }
+
+.guide-btn-text {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid white;
+  padding: 10px 20px;
+}
+
+.guide-card-body {
+  padding: 25px;
+}
+
+.guide-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.guide-title {
+  font-size: 1.8rem;
+  margin: 0 0 10px 0;
+}
+
+.guide-description {
+  font-size: 1rem;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+/* --- MODAL DE GUÍA --- */
+/* --- CONTENEDOR PRINCIPAL --- */
+.guides-page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* --- INTRODUCCIÓN --- */
+.guides-intro {
+  margin-bottom: 50px;
+  border-left: 4px solid var(--green-h);
+  padding-left: 25px;
+  
+  .intro-title {
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Tamaño fluido */
+    line-height: 1;
+    margin: 15px 0;
+    font-weight: 800;
+  }
+  .intro-lead {
+    font-size: 1.2rem;
+    max-width: 650px;
+    opacity: 0.8;
+  }
+}
+
+/* --- GRID DE CURSOS --- */
+.guides-grid {
+  display: grid;
+  /* Responsivo automático: mínimo 300px por card */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.guide-card {
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 10px 10px 0px var(--green-h);
+  }
+}
+
+.guide-card-image {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid var(--border-color);
+  
+  img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.5s;
+  }
+}
+
+.guide-card:hover .guide-card-image img {
+  filter: grayscale(0%);
+}
+
+.guide-card-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 117, 31, 0.85);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: 0.3s;
+  
+  .guide-btn-text {
+    color: white; font-weight: bold; border: 2px solid white;
+    padding: 8px 15px; text-transform: uppercase; font-size: 0.8rem;
+  }
+}
+
+.guide-card:hover .guide-card-overlay { opacity: 1; }
+
+.guide-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .guide-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .guide-icon { font-size: 1.5rem; }
+  .guide-title { font-size: 1.5rem; margin: 0; line-height: 1.2; }
+  .guide-description { font-size: 0.95rem; opacity: 0.8; line-height: 1.5; margin-top: 10px; }
+}
+
+/* --- MODAL RESPONSIVO --- */
+.guide-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 15px; /* Margen en móviles */
+}
+
+.guide-modal-overlay.active { display: flex; }
+
+.guide-modal-card {
+  background: var(--bg-color);
+  width: 100%;
+  max-width: 650px;
+  max-height: 85vh;
+  border: 2px solid var(--border-color);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: modalSlide 0.3s ease-out;
+}
+
+@keyframes modalSlide {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.guide-modal-close {
+  position: absolute;
+  top: 15px; right: 20px;
+  font-size: 2rem; background: none; border: none;
+  color: var(--text-color); cursor: pointer; z-index: 10;
+}
+
+.guide-modal-body {
+  padding: 40px;
+  overflow-y: auto;
+
+  .g-modal-icon { font-size: 2.5rem; display: block; }
+  .g-modal-title { font-size: 2rem; margin: 10px 0; line-height: 1.1; }
+  .g-modal-desc { 
+    font-size: 1.05rem; opacity: 0.8; 
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 25px; margin-bottom: 25px;
+  }
+}
+
+.list-title {
+  font-size: 0.8rem; text-transform: uppercase;
+  color: var(--green-h); letter-spacing: 1px; font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.guide-post-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  text-decoration: none;
+  transition: padding 0.2s;
+
+  &:hover {
+    padding-left: 10px;
+    .g-post-arrow { color: var(--green-h); transform: translateX(5px); }
+  }
+
+  h4 { margin: 0; font-size: 1.1rem; line-height: 1.3; }
+  p { margin: 5px 0 0 0; font-size: 0.85rem; opacity: 0.7; }
+  .g-post-arrow { font-size: 1.2rem; transition: 0.2s; padding-left: 15px; }
+}
+
+.no-content { padding: 20px 0; font-style: italic; opacity: 0.6; }
+
+/* --- AJUSTES MÓVIL (MENOS DE 768PX) --- */
+@media (max-width: 768px) {
+  .guides-page-wrapper { padding: 20px 15px; }
+  
+  .guides-intro {
+    padding-left: 15px;
+    margin-bottom: 30px;
+    .intro-title { font-size: 2.2rem; }
+  }
+
+  .guide-modal-body {
+    padding: 25px; /* Menos espacio interno en móvil */
+    .g-modal-title { font-size: 1.5rem; }
+  }
+
+  .guide-card-overlay {
+    display: none; /* Desactivar hover overlay en móvil para priorizar click */
+  }
+}
