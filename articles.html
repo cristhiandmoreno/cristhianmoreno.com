@@ -11,12 +11,14 @@ permalink: /articles/
     <p class="archive-subtitle">Análisis y opinión por <strong>Cristhian Moreno</strong>.</p>
     
     <div class="archive-stats">
-      {% assign internal_posts = site.posts | where: "author", "cristhian" %}
-      {% if site.data.externos %}
-        {% assign all_content = internal_posts | concat: site.data.externos | sort: 'date' | reverse %}
-      {% else %}
-        {% assign all_content = internal_posts | sort: 'date' | reverse %}
-      {% endif %}
+      {% assign internal_posts = site.posts | sort: "date" | reverse %}
+
+{% if site.data.externos %}
+  {% assign all_content = internal_posts | concat: site.data.externos %}
+{% else %}
+  {% assign all_content = internal_posts %}
+{% endif %}
+
       <span>{{ all_content.size }} publicaciones encontradas</span>
     </div>
   </header>
