@@ -11,8 +11,7 @@ permalink: /articles/
     <p class="archive-subtitle">Análisis y opinión por <strong>Cristhian Moreno</strong>.</p>
     
     <div class="archive-stats">
-     {% assign internal_posts = site.posts | where_exp: "post", "post.author contains 'cristhian'" %}
-      {% if site.data.externos %}
+      {% assign internal_posts = site.posts | where_exp: "post", "post.author | join: ',' | contains: 'cristhian'" %}
         {% assign all_content = internal_posts | concat: site.data.externos | sort: 'date' | reverse %}
       {% else %}
         {% assign all_content = internal_posts | sort: 'date' | reverse %}
